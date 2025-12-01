@@ -21,6 +21,9 @@ import scripting.IScriptedClass.IDialogueScriptedClass;
 import scripting.IScriptedClass.IEventDispatcher;
 import util.SortUtil;
 import util.TweenUtil;
+#if mobile
+import util.TouchUtil;
+#end
 
 enum DialogueState
 {
@@ -169,13 +172,13 @@ class Dialogue extends FlxSpriteGroup implements IDialogueScriptedClass implemen
         {
             case Typing:
                 // Pressing `ENTER` will stop the typing for this dialogue.
-                if (FlxG.keys.justPressed.ENTER)
+                if (FlxG.keys.justPressed.ENTER #if mobile || TouchUtil.justPressed #end)
                 {
                     advanceDialogue();
                 }
             case Idle:
                 // Skip to the next dialogue line when enter's pressed.
-                if (FlxG.keys.justPressed.ENTER)
+                if (FlxG.keys.justPressed.ENTER #if mobile || TouchUtil.justPressed #end)
                 {
                     advanceDialogue();
                 }
