@@ -1,0 +1,6 @@
+// build.gradle - minimal to load gradle.properties
+
+println "Loaded gradle.properties:"
+project.properties.each { key, value ->
+    println "$key = $value"
+}

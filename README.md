@@ -56,7 +56,8 @@ That means the app has installed successfully, but needs to do certain steps to 
 
 Steps to play:
 1. Download a file explorer, I'd recommend to install [ZArchiver](https://play.google.com/store/search?q=zarchiver&c=apps&pli=1)
-2. Go to the directory you downloaded the apk in, should be this: [Screenshot](https://media.discordapp.net/attachments/1323021749973024768/1444810573505237093/Screenshot_20251130-140053.ZArchiver2.png?ex=692eb8f4&is=692d6774&hm=9306447e712bdcc31695058a163797c311a230bbc18eee05cba0fb8f10db524f&=&format=webp&quality=lossless&width=900&height=918)
+2. Go to the directory you downloaded the apk in
+3. Tap on it, then tap view. It should show this: [Screenshot](https://media.discordapp.net/attachments/1323021749973024768/1444810573505237093/Screenshot_20251130-140053.ZArchiver2.png?ex=692eb8f4&is=692d6774&hm=9306447e712bdcc31695058a163797c311a230bbc18eee05cba0fb8f10db524f&=&format=webp&quality=lossless&width=900&height=918)
 3. Go inside the assets folder, then copy the "assets" folder. (Yes, there are two assets folder).
 4. Copy and paste this to "/storage/emulated/0/Android/media/dnbteam.daveandbambi/" (or "Android/media/dnbteam.daveandbambi/").
 5. Restart the app. it should work!

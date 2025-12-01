@@ -1,0 +1,58 @@
+# A way to individually do android builds instead of triggering the main branch.
+
+name: Android Build
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  buildAndroid:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-24.04
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4.1.7
+
+      - uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: 4.3.4
+      # Runs a set of commands using the runners shell
+      - name: Install Haxelib
+        run: |
+          haxelib setup ~/haxelib
+          haxelib install hxcpp > /dev/null --quiet
+          haxelib install lime
+          haxelib install openfl
+          haxelib install flixel
+          haxelib install flixel-tools
+          haxelib install flixel-ui
+          haxelib install flixel-addons
+          haxelib install actuate
+          haxelib install tjson
+          haxelib install hxjsonast
+          haxelib install hxCodec
+          haxelib install hscript-iris
+          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+          haxelib git extension-androidtools https://github.com/LimeExtensions/extension-androidtools
+          haxelib list
+      - name: Create Version Tag
+        run: echo "${{github.run_id}}" > VERSION
+      - name: Compile
+        run: haxelib run lime build android
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: androidBuild
+          path: export/release/android/bin/app/build/outputs/apk/debug
