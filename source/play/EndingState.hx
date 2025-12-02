@@ -10,6 +10,8 @@ import flixel.util.FlxColor;
 import ui.MusicBeatState;
 import ui.menu.story.StoryMenuState;
 
+import util.TouchUtil;
+
 typedef EndingStateParams =
 {
 	/**
@@ -147,11 +149,7 @@ class EndingState extends MusicBeatState
 	{
 		super.update(elapsed);
 
-		for (touch in FlxG.touches.list)
-			if (touch.justPressed)
-				justTouched = true;
-
-		if (controls.ACCEPT #if mobile || justTouched #end)
+		if (controls.ACCEPT #if mobile || TouchUtil.justPressed #end)
 		{
 			endIt();
 		}

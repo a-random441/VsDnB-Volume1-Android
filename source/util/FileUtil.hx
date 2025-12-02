@@ -54,8 +54,14 @@ class FileUtil
      */
     public static function createDirectory(path:String)
     {
-        if (!FileSystem.exists(SUtil.getStorageDirectory() + path)) {
-            FileSystem.createDirectory(SUtil.getStorageDirectory() + path);
+		#if desktop
+		var finalPath:String = path;
+		#else
+		var finalPath:String = SUtil.getStorageDirectory() + path;
+		#end
+		
+        if (!FileSystem.exists(finalPath)) {
+            FileSystem.createDirectory(SUtil.getStorageDirectory() + finalPath);
         }
     }
 

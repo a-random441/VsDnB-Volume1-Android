@@ -61,3 +61,17 @@ Steps to play:
 3. Go inside the assets folder, then copy the "assets" folder. (Yes, there are two assets folder).
 4. Copy and paste this to "/storage/emulated/0/Android/media/dnbteam.daveandbambi/" (or "Android/media/dnbteam.daveandbambi/").
 5. Restart the app. it should work!
+
+## Mod Support for Android
+Volume 1 Supports Polymod, which is used for mods (like V-Slice!)
+
+I have also as well supported mod support for android!
+
+Here are steps to play mods in it.
+1. Download any Volume 1 mod (soft-coded) in gamebanana, any.
+2. Extract the compressed zip, and copy the folder.
+3. Paste it to "Android/media/dnbteam.daveandbambi/mods" (Volume 1 already creates a mod folder in the first startup)
+4. (Re)open the app, and you should see your mods there.
+
+Polymod uses a custom filesystem, but not for android, so I modified it to support mods for android.
+
