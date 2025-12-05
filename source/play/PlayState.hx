@@ -1065,7 +1065,7 @@ class PlayState extends MusicBeatState
 					SoundController.cache(Paths.sound('note_click'));
 				}
 			case 'minimalUI':
-				Main.fps.visible = value ? false : Preferences.debugUI;
+				#if !mobile Main.fps.visible = value ? false : Preferences.debugUI; #end
 		}
 		onPreferenceChangedPost.dispatch(preference, value);
 	}
