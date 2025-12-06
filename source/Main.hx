@@ -13,7 +13,7 @@ import modding.PolymodManager;
 
 import ui.intro.InitState;
 
-#if android
+#if mobile
 import util.SUtil;
 #end
 
